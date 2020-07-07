@@ -1,0 +1,30 @@
+header {
+  color: white;
+  text-align: center;
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  .links {
+    width: 20%;
+    margin-left: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      border-bottom: 2px solid rgb(35, 75, 150);
+      outline: none;
+
+      &:hover {
+        border-bottom: 2px solid white;
+        cursor: pointer;
+      }
+    }
+  }
+}
