@@ -1,0 +1,32 @@
+.search {
+  //   margin-left: 25px;
+  margin-top: 20px;
+  width: 30%;
+  margin-left: 35%;
+
+  form {
+    input {
+      height: 25px;
+      border-radius: 3px;
+      border: none;
+      width: 65%;
+      outline: none;
+    }
+
+    button {
+      height: 28px;
+      background: none;
+      border: 1px solid white;
+      border-radius: 3px;
+      outline: none;
+      color: white;
+      margin-left: 20px;
+
+      &:hover {
+        background: white;
+        color: rgb(35, 75, 150);
+        cursor: pointer;
+      }
+    }
+  }
+}
