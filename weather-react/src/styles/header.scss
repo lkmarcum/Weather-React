@@ -1,17 +1,21 @@
 header {
   color: white;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
 
   h1 {
     font-size: 6rem;
+    margin-left: 20px;
   }
 
   .links {
     width: 20%;
-    margin-left: 40%;
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-right: 80px;
 
     button {
       background: none;
