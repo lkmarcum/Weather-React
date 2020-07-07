@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/search.scss";
 
 const Search = () => {
   const [input, setInput] = useState("");
+  const [location, setLocation] = useState({ latitude: "", longitude: "" });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(`Lat: ${position.coords.latitude}`);
+      console.log(`Long: ${position.coords.longitude}`);
+    });
+  }, []);
 
   const handleChange = (e) => {
     setInput(e.target.value);
