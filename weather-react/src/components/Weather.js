@@ -41,6 +41,7 @@ const Weather = ({ coords }) => {
           windGust: res.data.current.wind_gust,
           weatherMain: res.data.current.weather[0].main,
           weatherDesc: res.data.current.weather[0].description,
+          weatherIcon: res.data.current.weather[0].icon,
         });
       })
       .catch((err) => {
@@ -54,7 +55,14 @@ const Weather = ({ coords }) => {
       <h4>{coords.latitude}</h4>
       <h4>{coords.longitude}</h4>
       <h4>{weather.temp}</h4>
-      {weather.temp && <h4>{weather.time}</h4>}
+      {weather.temp && (
+        <div className="weather">
+          <h4>{weather.time}</h4>
+          <img
+            src={`http://openweathermap.org/img/wn/${weather.weatherIcon}@4x.png`}
+          />
+        </div>
+      )}
     </div>
   );
 };
