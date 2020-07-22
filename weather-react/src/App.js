@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Search />
+      {/* <Search /> */}
       <Weather coords={coords} />
     </div>
   );
