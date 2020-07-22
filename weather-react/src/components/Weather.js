@@ -40,7 +40,9 @@ const Weather = ({ coords }) => {
           windDeg: res.data.current.wind_deg,
           windGust: res.data.current.wind_gust,
           weatherMain: res.data.current.weather[0].main,
-          weatherDesc: res.data.current.weather[0].description,
+          weatherDesc:
+            res.data.current.weather[0].description.charAt(0).toUpperCase() +
+            res.data.current.weather[0].description.slice(1),
           weatherIcon: res.data.current.weather[0].icon,
         });
       })
@@ -51,18 +53,57 @@ const Weather = ({ coords }) => {
 
   return (
     <div className="weather">
-      <h3>Weather</h3>
-      <h4>{coords.latitude}</h4>
-      <h4>{coords.longitude}</h4>
-      <h4>{weather.temp}</h4>
-      {weather.temp && (
-        <div className="weather">
-          <h4>{weather.time}</h4>
+      <div className="weather-main">
+        <div className="column-one">
           <img
             src={`http://openweathermap.org/img/wn/${weather.weatherIcon}@4x.png`}
           />
+          <h3>{weather.time}</h3>
         </div>
-      )}
+        <div className="column-two">
+          <h3 className="description">{weather.weatherDesc}</h3>
+          <h3>Temp: {weather.temp}&#176;</h3>
+          <h3>Feels like: {weather.feelsLike}&#176;</h3>
+        </div>
+      </div>
+      <div className="rows">
+        <div className="row">
+          <div className="row-item">
+            <h2>Humidity</h2>
+            <h3>{weather.humidity}%</h3>
+          </div>
+          <div className="row-item">
+            <h2>Dewpoint</h2>
+            <h3>{weather.dewPoint}&#176;</h3>
+          </div>
+          <div className="row-item">
+            <h2>UV Index</h2>
+            <h3>{weather.uvi}</h3>
+          </div>
+          <div className="row-item">
+            <h2>Pressure</h2>
+            <h3>{weather.pressure} hPa</h3>
+          </div>
+        </div>
+        <div className="row">
+          <div className="row-item">
+            <h2>Sunrise</h2>
+            <h3>{weather.sunrise}</h3>
+          </div>
+          <div className="row-item">
+            <h2>Sunset</h2>
+            <h3>{weather.sunset}</h3>
+          </div>
+          <div className="row-item">
+            <h2>Wind</h2>
+            <h3>{weather.windSpeed} mph</h3>
+          </div>
+          <div className="row-item">
+            <h2>Visibility</h2>
+            <h3>{weather.visibility * 0.000621} mi</h3>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
